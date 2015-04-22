@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/layer.css">
+	<link rel="stylesheet" href="css/demo.css">
+</head>
+<body>
+
+	<div id="header">
+		<h1>在线编辑系统</h1>
+		<div class="right">
+			<div class="m-search">
+				<input type="text" class="search">
+			</div>
+			<div class="login">
+				<img src="img/av.jpg" alt="">
+				<span class="name">liwenxiang</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="m-row m-bd">
+		
+		<div class="m-cell-1 m-choose">
+			
+			<ul id="choose">
+				<li class="radio">单选</li>
+				<li class="checkbox">多选</li>
+			</ul>
+
+		</div>	
+		
+		<div class="m-cell-3 m-q">
+			<div class="m-btn">
+				<span class="btn btn-red">保存</span>
+				<span class="btn btn-green">预览</span>
+				<span class="btn btn-green">导入</span>
+				<span class="btn btn-green">创建新试卷</span>
+			</div>
+			
+
+			<div class="m-row">
+				<div class="m-list">
+					<div class="list-tips">试卷题目(单击编辑试卷题目)</div>
+					<ul id="sortList">
+						<li>
+							<div class="m-checkbox">
+								<div class="m-ct">
+									<h3>1、下列说法哪种你认为是正确的？</h3>
+									<div class="item">
+										<label for="checkbox">说法1</label>
+									</div>
+									<div class="item">
+										<label for="checkbox">说法1</label>
+									</div>
+									<div class="item">
+										<label for="checkbox">说法1</label>
+									</div>
+								</div>
+								<div class="text hide">点击这里编辑</div>
+								<div class="m-tools m-row">
+									<b class="fl u-i u-i-cp hide"></b>
+									<b class="fr u-i u-i-del hide"></b>
+								</div>
+							</div>
+
+							<div class="m-checkbox">
+								<div class="m-ct">
+									<h3>2、下列说法哪种你认为是正确的？</h3>
+									<div class="item">
+										<label for="checkbox">说法1</label>
+									</div>
+									<div class="item">
+										<label for="checkbox">说法1</label>
+									</div>
+									<div class="item">
+										<label for="checkbox">说法1</label>
+									</div>
+								</div>
+								<div class="text hide">点击这里编辑</div>
+								<div class="m-tools m-row">
+									<b class="fl u-i u-i-cp hide"></b>
+									<b class="fr u-i u-i-del hide"></b>
+								</div>
+							</div>
+
+						</li>
+					</ul>
+
+					
+				</div>
+				<div class="m-cell-s m-set">
+					<ul class="m-row">
+						<li>试卷设置</li>
+						<li>报告设置</li>
+					</ul>
+					
+				</div>
+			</div>
+		</div>
+	
+		
+
+	</div>
+
+
+    <script src="http://www.proprofs.com/api/ckeditor_ver4.4.0/ckeditor.js"></script>
+
+    <script src="js/sortable.js"></script>
+	<script src="js/nt.js"></script>
+	<script src="js/171.js"></script>
+	<script src="js/jq.sortable.js"></script>
+	<script src="js/layer.js"></script>
+	<script src="js/demo.js"></script>
+
+	<script type="text/template" id="checkboxTmp">
+
+		<div class="m-checkbox">
+			<div class="m-ct">
+				<h3>1、下列说法哪种你认为是正确的？</h3>
+				<div class="item">
+					<label for="checkbox">说法1</label>
+				</div>
+				<div class="item">
+					<label for="checkbox">说法1</label>
+				</div>
+				<div class="item">
+					<label for="checkbox">说法1</label>
+				</div>
+			</div>
+			<div class="text hide">点击这里编辑</div>
+			<div class="m-tools m-row">
+				<b class="fl u-i u-i-cp hide"></b>
+				<b class="fr u-i u-i-del hide"></b>
+			</div>
+		</div>
+
+	</script>
+
+    <script type="text/template" id="dialogTmp">
+    	<div class="m-hd">
+    		试题编辑
+    	</div>
+        <div class="m-ct">
+        	<div class="cell">
+				<select name="" id="">
+					<option value="">单选</option>
+				</select>
+
+				<input type="text" class="inp inp-s" placeholder="分数值">
+
+				<span class="m-cb">选做</span>
+			</div>
+			<div class="m-editor cell">
+				<textarea name="editor01"  class="tex">下列说法哪种你认为是正确的？</textarea>
+			</div>
+			<div class="m-que cell">
+				<textarea name="add-q" class="tex" placeholder="（批量填加答案）默认提示：请批量添加答案，以空行分开不同答案。"></textarea>
+				<div class="m-row">
+					<input type="text" class="inp inp-b" placeholder="说法1">
+					<div class="m-btn-box">
+						<b class="u-i-add"></b>
+						<b class="u-i-reduce"></b>
+					</div>
+				</div>
+				<div class="m-row">
+					<input type="text" class="inp inp-b" placeholder="说法2">
+					<div class="m-btn-box">
+						<b class="u-i-add"></b>
+						<b class="u-i-reduce"></b>
+					</div>
+				</div>
+				<div class="m-row">
+					<input type="text" class="inp inp-b" placeholder="说法3">
+					<div class="m-btn-box">
+						<b class="u-i-add"></b>
+						<b class="u-i-reduce"></b>
+					</div>
+				</div>
+				<div class="m-row">
+					<input type="text" class="inp inp-b" placeholder="说法4">
+					<div class="m-btn-box">
+						<b class="u-i-add"></b>
+						<b class="u-i-reduce"></b>
+					</div>
+				</div>
+			</div>
+			<div class="other">
+				<a href="###">注释</a>
+				<a href="###">知识点</a>
+			</div>
+        </div>
+        <div class="m-btn">
+			<span class="btn btn-green">上一题</span>
+			<span class="btn btn-green">下一题</span>
+        	<span class="btn btn-red">确定</span>
+			<span class="btn btn-green closeDialog">取消</span>
+        </div>
+    </script>
+
+</body>
+</html>
