@@ -88,4 +88,15 @@
         layer.closeAll();
     });
 
+
+    $('body').on('focus', '[name=add-q]', function(){
+        $(this).animate({
+            height: 220
+        }, 200);
+    });
+    // $('body').on('blur', '[name=add-q]', function(){
+    //     $(this).animate({
+    //         height: 50
+    //     }, 200);
+    // });
 })();
