@@ -46,48 +46,6 @@
 				<div class="m-list">
 					<div class="list-tips">试卷题目(单击编辑试卷题目)</div>
 					<ul id="sortList">
-						<li>
-							<div class="m-checkbox">
-								<div class="m-ct">
-									<h3>1、下列说法哪种你认为是正确的？</h3>
-									<div class="item">
-										<label for="checkbox">说法1</label>
-									</div>
-									<div class="item">
-										<label for="checkbox">说法1</label>
-									</div>
-									<div class="item">
-										<label for="checkbox">说法1</label>
-									</div>
-								</div>
-								<div class="text hide">点击这里编辑</div>
-								<div class="m-tools m-row">
-									<b class="fl u-i u-i-cp hide"></b>
-									<b class="fr u-i u-i-del hide"></b>
-								</div>
-							</div>
-
-							<div class="m-checkbox">
-								<div class="m-ct">
-									<h3>2、下列说法哪种你认为是正确的？</h3>
-									<div class="item">
-										<label for="checkbox">说法1</label>
-									</div>
-									<div class="item">
-										<label for="checkbox">说法1</label>
-									</div>
-									<div class="item">
-										<label for="checkbox">说法1</label>
-									</div>
-								</div>
-								<div class="text hide">点击这里编辑</div>
-								<div class="m-tools m-row">
-									<b class="fl u-i u-i-cp hide"></b>
-									<b class="fr u-i u-i-del hide"></b>
-								</div>
-							</div>
-
-						</li>
 					</ul>
 
 					
@@ -110,24 +68,28 @@
 	<script src="js/171.js"></script>
 	<script src="js/jq.sortable.js"></script>
 	<script src="js/layer.js"></script>
-	<script src="js/demo.js"></script>
 
 	<script type="text/template" id="checkboxTmp">
 
 		<div class="m-checkbox">
 			<div class="m-ct">
-				<h3>1、下列说法哪种你认为是正确的？</h3>
+				<h3><em><%=id%></em>、<%=editor01%></h3>
+                <% var options = option.split('|');%>
+                <% var checkboxs = check.split('|');%>
+                <% for(var i=0;i<options.length; i++){ %>
+
 				<div class="item">
-					<label for="checkbox">说法1</label>
+                    <% if(checkboxs[i] == 0){ %>
+                    <i class="mcb"></i>
+                    <%} else {%>
+                    <i class="mcb mcb-select"></i>
+                    <%}%>
+					<label><%=options[i]%></label>
 				</div>
-				<div class="item">
-					<label for="checkbox">说法1</label>
-				</div>
-				<div class="item">
-					<label for="checkbox">说法1</label>
-				</div>
+
+                <%}%>
 			</div>
-			<div class="text hide">点击这里编辑</div>
+			<!--<div class="text hide">点击这里编辑</div>-->
 			<div class="m-tools m-row">
 				<b class="fl u-i u-i-cp hide"></b>
 				<b class="fr u-i u-i-del hide"></b>
@@ -137,6 +99,7 @@
 	</script>
 
     <script type="text/template" id="dialogTmp">
+        <input type="hidden" name="id" value="<%=id%>"/>
     	<div class="m-hd">
     		试题编辑
     	</div>
@@ -151,61 +114,68 @@
 				<span class="m-cb">选做</span>
 			</div>
 			<div class="m-editor cell">
-				<textarea name="editor01"  class="tex">下列说法哪种你认为是正确的？</textarea>
+				<textarea name="editor01" class="tex"><%=editor01%></textarea>
 			</div>
 			<div class="m-que cell">
-				<div class="add-q-a"><textarea name="add-q" class="tex" placeholder="（批量填加答案）默认提示：请批量添加答案，以空行分开不同答案。"></textarea></div>
-				<div class="m-row">
-					<input type="text" class="inp inp-b" placeholder="说法1">
-					<div class="m-btn-box">
-						<b class="u-i-add"></b>
-						<b class="u-i-reduce"></b>
-					</div>
-				</div>
-				<div class="m-row">
-					<input type="text" class="inp inp-b" placeholder="说法2">
-					<div class="m-btn-box">
-						<b class="u-i-add"></b>
-						<b class="u-i-reduce"></b>
-					</div>
-				</div>
-				<div class="m-row">
-					<input type="text" class="inp inp-b" placeholder="说法3">
-					<div class="m-btn-box">
-						<b class="u-i-add"></b>
-						<b class="u-i-reduce"></b>
-					</div>
-				</div>
-				<div class="m-row">
-					<input type="text" class="inp inp-b" placeholder="说法4">
-					<div class="m-btn-box">
-						<b class="u-i-add"></b>
-						<b class="u-i-reduce"></b>
-					</div>
-				</div>
+				<div class="add-q-a">
+                    <textarea data-ignore="true" name="add-q" class="tex" placeholder="（批量填加答案）默认提示：请批量添加答案，以空行分开不同答案。"></textarea>
+                    <div class="m-sub-btn hide">
+                        <span class="btn btn-red batch-update">确定</span>
+                        <span class="btn btn-green batch-cancel">取消</span>
+                    </div>
+                </div>
+                <div class="q-a-box">
+                    <% var options = option.split('|');%>
+                    <% var checkboxs = check.split('|');%>
+                    <% for(var i=0;i<options.length; i++){ %>
+                    <div class="m-row">
+                        <% if(checkboxs[i] == 0){ %>
+                        <i class="mcb"></i>
+                        <%} else {%>
+                        <i class="mcb mcb-select"></i>
+                        <%}%>
+                        <input type="text" class="inp inp-b" name="option" placeholder="说法<%=i%>" value="<%=options[i]%>">
+                        <div class="m-btn-box">
+                            <b class="u-i-add"></b>
+                            <b class="u-i-reduce"></b>
+                        </div>
+                    </div>
+                    <%}%>
+                </div>
 			</div>
 			<div class="other">
-				<a href="###">注释</a>
-				<a href="###">知识点</a>
+				<div class="none">
+                    <a href="###">注释</a>
+                    <textarea name="" class="tex"></textarea>
+                </div>
+                <div class="none">
+                    <a href="###">知识点</a>
+                    <textarea name="" class="tex"></textarea>
+                </div>
 			</div>
         </div>
         <div class="m-btn">
 			<span class="btn btn-green">上一题</span>
 			<span class="btn btn-green">下一题</span>
-        	<span class="btn btn-red">确定</span>
+        	<span class="btn btn-red subBtn">确定</span>
 			<span class="btn btn-green closeDialog">取消</span>
         </div>
     </script>
 	
 	<script type="text/template" id="optionTmp">
+        <% for(var i=0;i<data.length; i++){ %>
+        <% if(!data[i]){continue};%>
 		<div class="m-row">
-			<input type="text" class="inp inp-b" placeholder="说法4">
+            <i class="mcb"></i>
+            <input type="text" class="inp inp-b" name="option" placeholder="说法<%=i%>" value="<%=data[i]%>">
 			<div class="m-btn-box">
 				<b class="u-i-add"></b>
 				<b class="u-i-reduce"></b>
 			</div>
 		</div>
+        <%}%>
 	</script>
+    <script src="js/demo.js"></script>
 
 </body>
 </html>

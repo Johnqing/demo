@@ -13,10 +13,13 @@ html #layui_layer_skinlayercss {
 	position:absolute;
 	width:1989px
 }
-.layui-layer-shade,.layui-layer {
-	position:fixed;
-	_position:absolute;
-	pointer-events:auto
+.layui-layer-shade{
+    position:fixed;
+    pointer-events:auto
+
+}
+.layui-layer {
+	position:absolute;
 }
 .layui-layer-shade {
 	top:0;

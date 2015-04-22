@@ -9,11 +9,13 @@ body, html{
 	display: inline-block;
 }
 .u-i-cp{
+    cursor: pointer;
 	width: 14px;
 	height: 15px;
 	background: url('../img/cp.jpg');
 }
 .u-i-del{
+    cursor: pointer;
 	width: 11px;
 	height: 14px;
 	background: url('../img/del.jpg');
@@ -102,6 +104,7 @@ body, html{
 /*========================header=========================*/
 
 .m-bd{
+    position: relative;
 	margin: 0 auto;
 	width: 1170px;
 }
@@ -136,6 +139,12 @@ body, html{
 	top: 0;
 	left: 0;
 	z-index: 2;
+    background-color: #f1f1f1;
+}
+
+.m-que .add-q-a .m-sub-btn{
+    margin-top: 10px;
+    text-align: center;
 }
 
 .m-list{
@@ -144,8 +153,14 @@ body, html{
 
 	background-color: #1abc9c;
 }
+
+#sortList{
+    min-height: 300px;
+}
+
 .m-set{
-	float: right;
+    position: fixed;
+    margin-left: 735px;
 	width: 249px;
 
 	background-color: #e4e4e4;
@@ -161,6 +176,7 @@ body, html{
 	height: 34px;
 }
 .btn{
+    cursor: pointer;
 	display: inline-block;
 	margin-right: 20px;
 	padding: 0 27px;
@@ -182,6 +198,7 @@ body, html{
 	========================================
  */
 .m-choose{
+    position: fixed;
 	font-size: 14px;
 }
 
@@ -253,6 +270,7 @@ body, html{
 }
 
 .m-list .m-ct{
+    cursor: pointer;
 	padding: 14px 11px 0;
 }
 
@@ -292,7 +310,7 @@ body, html{
 	margin-top: 15px;
 	padding: 0 25px;
 }
-.m-list .item:before{
+.m-list .item .mcb{
 	margin-top: 2px;
 	margin-right: 10px;
 	vertical-align: top;
@@ -338,7 +356,7 @@ body, html{
 }
 
 .m-q-dialog select{
-	padding: 6px;
+	height: 31px;
 }
 
 .cke_textarea_inline,
@@ -379,7 +397,7 @@ body, html{
 }
 
 .m-q-dialog .m-cb:before,
-.m-q-dialog .m-row:before{
+.m-q-dialog .m-row i{
 	margin-top: 6px;
 	margin-right: 10px;
 	vertical-align: top;
@@ -449,11 +467,40 @@ body, html{
 
 
 .other{
-	height: 42px;
-	line-height: 42px;
+	padding: 10px 0;
+}
+.other textarea{
+    margin: 5px 0;
+}
+.other .none textarea{
+    display: none;
 }
 .other a{
 	color: #000
+}
+.other a:after{
+    display: inline-block;
+    margin-top: 8px;
+    margin-left: 8px;
+    content: ' ';
+    width: 0;
+    height: 0;
+    vertical-align: top;
+
+    border-top-color: #41568B;
+    border-bottom-color: #41568B;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    border-left: 6px solid #41568B;
+}
+.other .none a:after{
+
+    border-top-color: #41568B;
+    border-bottom-color: #41568B;
+    border-width: 0;
+    border-top: 6px solid #41568B;
+    border-right: 3px solid transparent;
+    border-left: 3px solid transparent;
 }
 /**
  * ckeditor
