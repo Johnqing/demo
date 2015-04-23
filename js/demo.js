@@ -102,18 +102,23 @@
         }
     }
 
-    function addOptToRight(node){
+    function addOptToRight(node, type){
+        var cnode = node.clone();
+        if(type){
+            node.remove();
+        }
+        $('#sortList').append(cnode);
         globel.number++;
-        node.html(NT.tpl('checkboxTmp', defaultOption()));
-        node.data('number', globel.number);
-        sortNumber(node);
+        cnode.html(NT.tpl('checkboxTmp', defaultOption()));
+        cnode.data('number', globel.number);
+        sortNumber(cnode);
+
+        $('body').scrollTop($('body').scroll().height())
     }
 
 
     $('#choose').on('click', 'li', function(){
-        var cnode = $(this).clone();
-        $('#sortList').append(cnode);
-        addOptToRight(cnode);
+        addOptToRight($(this));
     });
 
     $('#choose').sortable({
@@ -128,7 +133,7 @@
         onEnd: function(evt){
             var node = $(evt.item);
             if(node.parents('#choose').length) return;
-            addOptToRight(node);
+            addOptToRight(node, 1);
         }
     });
 
@@ -185,6 +190,12 @@
     }
 
 
+    function notice(msg){
+        layer.msg(msg, {
+            fix: false
+        })
+    }
+
     function editor(n){
         layer.open({
             fix: false,
@@ -209,7 +220,12 @@
         var node = $(this).parents('li');
         var n = node.attr('data-number');
         delete globel.saveData[n];
-        node.remove();
+        node.animate({
+            opacity: 0
+        }, 300, function(){
+            node.remove();
+            notice('删除成功！');
+        });
         sortNumber();
     });
 
@@ -218,8 +234,15 @@
         var cnode = node.clone();
         globel.number++;
         node.after(cnode);
+        cnode.css('opacity', 0);
         cnode.attr('data-number', globel.number);
         sortNumber();
+        cnode.animate({
+            opacity: 1
+        }, 300, function(){
+            notice('复制成功！');
+        });
+
     });
 
     // dialog
