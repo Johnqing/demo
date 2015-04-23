@@ -82,6 +82,7 @@
 		<div class="m-checkbox">
 			<div class="m-ct">
 				<h3><em><%=id%></em>、<%=editor01%></h3>
+                <% option = option || '说法1|说法2|说法3|说法4';%>
                 <% var options = option.split('|');%>
                 <% var checkboxs = check.split('|');%>
                 <% for(var i=0;i<options.length; i++){ %>
@@ -147,6 +148,7 @@
                     </div>
                 </div>
                 <div class="q-a-box">
+                    <% option = option || '说法1|说法2|说法3|说法4';%>
                     <% var options = option.split('|');%>
                     <% var checkboxs = check.split('|');%>
                     <% for(var i=0;i<options.length; i++){ %>
