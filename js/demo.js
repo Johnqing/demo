@@ -102,6 +102,19 @@
         }
     }
 
+    function addOptToRight(node){
+        globel.number++;
+        node.html(NT.tpl('checkboxTmp', defaultOption()));
+        node.data('number', globel.number);
+        sortNumber(node);
+    }
+
+
+    $('#choose').on('click', 'li', function(){
+        var cnode = $(this).clone();
+        $('#sortList').append(cnode);
+        addOptToRight(cnode);
+    });
 
     $('#choose').sortable({
         ghostClass: 'ghost',
@@ -115,10 +128,7 @@
         onEnd: function(evt){
             var node = $(evt.item);
             if(node.parents('#choose').length) return;
-            globel.number++;
-            node.html(NT.tpl('checkboxTmp', defaultOption()));
-            node.data('number', globel.number);
-            sortNumber(node);
+            addOptToRight(node);
         }
     });
 
@@ -177,8 +187,9 @@
 
     function editor(n){
         layer.open({
+            fix: false,
             type: 1,
-            area: ['630px', '585px'],
+            area: ['630px', '385px'],
             title: 0,
             closeBtn: 0,
             shadeClose: 0,
@@ -262,7 +273,10 @@
     $('body').on('click', '.batch-update', function(){
         var texNode = $(this).parents('.add-q-a').find('.tex');
         var value = texNode.val();
-        if(!value) return;
+        if(!value){
+            addOptionClear();
+            return;
+        }
 
         var optionVal = value.split(/\n/);
         var html = updateOption(optionVal);
@@ -295,6 +309,8 @@
         layer.closeAll();
         var result = NT.tpl('checkboxTmp', data);
         $('[data-number='+data.id+']').html(result);
+
+        sortNumber();
     });
 
 

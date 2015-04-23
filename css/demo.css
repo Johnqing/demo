@@ -2,6 +2,10 @@ body, html{
 	background-color: #f2f2f2
 }
 
+body{
+	padding-top: 96px;
+}
+
 /**
  * icon
  */
@@ -22,12 +26,19 @@ body, html{
 }
 /*========================header=========================*/
 #header{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 9;
+
+	width: 100%;
 	margin-bottom: 26px;
 	padding: 0 25px;
 	height: 70px;
 	
 	line-height: 70px;
-	background-color: #fff
+	background-color: #fff;
+	box-sizing: border-box;
 }
 
 #header h1{
@@ -52,6 +63,7 @@ body, html{
 	border: 1px solid #d7d7d7;
 	height: 28px;
 	border-radius: 20px;
+	padding-left: 35px;
 }
 #header .m-search:before{
 	display: inline-block;
@@ -98,8 +110,12 @@ body, html{
 	margin-top: 14px;
 	margin-right: 10px;
 }
+#header .u-avatar img {
+	cursor: pointer;
+}
 #header .name{
 	font-weight: bold;
+	cursor: pointer;
 }
 /*========================header=========================*/
 
@@ -128,11 +144,18 @@ body, html{
 .m-cell-3{
 	width: 984px;
 }
-
-
+.m-q{
+	position: relative;
+	padding-top: 54px;
+}
+.m-q .m-btn{
+    position: absolute;
+    top: 0;
+    /*top: 97px;*/
+}
 .m-que{
 	position: relative;
-	padding-top: 76px;
+	padding-top: 56px;
 }
 .m-que .add-q-a{
 	position: absolute;
@@ -203,6 +226,7 @@ body, html{
 }
 
 .m-choose li{
+	cursor: pointer;
 	margin-top: 15px;
 	padding: 6px 11px;
 
@@ -389,7 +413,7 @@ body, html{
 .m-q-dialog .tex{
 	padding: 12px;
 	width: 546px;
-	min-height: 50px;
+	min-height: 30px;
 }
 
 .m-q-dialog .cell{
