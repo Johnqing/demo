@@ -179,10 +179,22 @@
         {
             name: "insert"
         }, ['pbckcode']];
-
+    var default_text = '下列说法哪种你认为是正确的？';
     editorConfig.removeButtons = 'Subscript,Superscript,Anchor,strike,magicline';
     editorConfig.extraPlugins += (editorConfig.extraPlugins.length == 0 ? '' : ',') + 'ckeditor_wiris';
     editorConfig.toolbar = editorConfig.toolbarGroups;
+    editorConfig.on = {
+        focus: function(ev){
+            if (CKEDITOR.instances['editor01'].getData() == default_text){
+                CKEDITOR.instances['editor01'].setData("");
+            }
+        },
+        blur: function(ev) {
+            if (CKEDITOR.instances['editor01'].getData() == "" || CKEDITOR.instances['editor01'].getData() == "<b></b>") {
+                CKEDITOR.instances['editor01'].setData(default_text);
+            }
+        }
+    };
 
     function CKupdate() {
         for (var instance in CKEDITOR.instances)
