@@ -232,6 +232,10 @@ body{
 
 	background-color: #f3f3f4
 }
+.m-choose li:hover{
+    background-color: #DFDFE2;
+}
+
 
 .m-choose li:before{
 	width: 16px;
