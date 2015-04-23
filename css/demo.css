@@ -260,6 +260,7 @@ body{
 }
 
 .list-tips{
+    cursor: pointer;
 	height: 59px;
 	line-height: 59px;
 	text-align: center;
