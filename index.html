@@ -128,7 +128,12 @@
 
 				<input type="text" class="inp inp-s" placeholder="分数值">
 
-				<span class="m-cb">选做</span>
+				<span class="m-cb">
+					<i class="mcb">
+		                <input type="hidden" name="check" value="0"/>
+		            </i>
+					选做
+				</span>
 			</div>
 			<div class="m-editor cell">
 				<textarea name="editor01" class="tex"><%=editor01%></textarea>
@@ -163,11 +168,11 @@
 			<div class="other">
 				<div class="none">
                     <a href="###">注释</a>
-                    <textarea name="" class="tex"></textarea>
+                    <input name="" class="inp inp-b" />
                 </div>
                 <div class="none">
                     <a href="###">知识点</a>
-                    <textarea name="" class="tex"></textarea>
+                    <input name="" class="inp inp-b" />
                 </div>
 			</div>
         </div>

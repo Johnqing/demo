@@ -420,12 +420,18 @@ body{
 	margin-top: 12px;
 }
 
-.m-q-dialog .m-cb:before,
+.m-q-dialog .m-cb i,
 .m-q-dialog .m-row i{
 	margin-top: 6px;
 	margin-right: 10px;
 	vertical-align: top;
+}
+.m-q-dialog .m-cb i{
+	margin-top: 2px;
+	margin-right: 0;
+}
 
+.mcb{
 	border: 1px solid #838383;
 	border-radius: 2px;
 
@@ -436,6 +442,9 @@ body{
 
 	content: ' ';
 	display: inline-block;
+}
+.mcb-select{
+	background: url('../img/mcb_slt.png') no-repeat;
 }
 
 .m-q-dialog .m-cb{
@@ -493,10 +502,12 @@ body{
 .other{
 	padding: 10px 0;
 }
-.other textarea{
+.other .inp{
     margin: 5px 0;
+    width: 100%;
+    box-sizing: border-box;
 }
-.other .none textarea{
+.other .none .inp{
     display: none;
 }
 .other a{

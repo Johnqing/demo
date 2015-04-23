@@ -259,7 +259,7 @@
     function addOptionClear(){
         $('.add-q-a').find('.m-sub-btn').addClass('hide');
         $('[name=add-q]').animate({
-            height: 50
+            height: 30
         }, 200);
     }
 
