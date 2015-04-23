@@ -92,7 +92,7 @@
                     <%} else {%>
                     <i class="mcb mcb-select"><input type="hidden" name="check" value="1"/></i>
                     <%}%>
-					<label><%=options[i]%></label>
+					<label><%=(options[i] || '说法' + (i+1))%></label>
 				</div>
 
                 <%}%>
@@ -156,7 +156,8 @@
                         <%} else {%>
                         <i class="mcb mcb-select" title="点击请标示正确答案"><input type="hidden" name="check" value="1"/></i>
                         <%}%>
-                        <input type="text" class="inp inp-b" name="option" placeholder="说法<%=i%>" value="<%=options[i]%>">
+                        <%var item = i+1;%>
+                        <input type="text" class="inp inp-b" name="option" placeholder="说法<%=item%>" <% if(options[i] != ('说法' +item) ){%>value="<%=options[i]%>"<%}%>>
                         <div class="m-btn-box">
                             <b class="u-i-add"></b>
                             <b class="u-i-reduce"></b>
